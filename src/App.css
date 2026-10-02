@@ -248,16 +248,38 @@ h2 {
   font-size: clamp(2.5rem, 5vw, 4rem);
 }
 
+.content-section:has(.service-grid) {
+  text-align: center;
+}
+
+.content-section:has(.service-grid) .section-introduction {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .card-grid {
   max-width: 900px;
-  margin-top: 42px;
+  margin: 42px auto 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 22px;
 }
 
-.service-grid {
-  grid-template-columns: repeat(2, 1fr);
+.service-grid .content-card {
+  min-height: 290px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.service-grid .content-card h2 {
+  color: var(--charcoal);
+  font-size: 1.5rem;
+}
+
+.service-grid .content-card p {
+  text-align: center;
 }
 
 .content-card,
@@ -415,8 +437,9 @@ h2 {
     min-height: 250px;
   }
 
-  .card-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .card-grid,
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -441,7 +464,7 @@ h2 {
   }
 
   .card-grid,
-  .service-grid {
+  .project-grid {
     grid-template-columns: 1fr;
   }
 
@@ -453,9 +476,9 @@ h2 {
 }
 
 /* Project card layout and images */
-.card-grid {
+.project-grid {
   max-width: 900px;
-  margin-top: 42px;
+  margin: 42px auto 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
