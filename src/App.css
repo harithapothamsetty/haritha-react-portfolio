@@ -47,6 +47,8 @@ a {
   flex-direction: column;
 }
 
+/* Header and navigation */
+
 .site-header {
   width: min(1180px, calc(100% - 40px));
   margin: 0 auto;
@@ -74,9 +76,9 @@ a {
   height: 42px;
   display: grid;
   place-items: center;
+  border-radius: 50%;
   background: var(--terracotta);
   color: white;
-  border-radius: 50%;
   font-size: 0.88rem;
   letter-spacing: 0.05em;
 }
@@ -88,9 +90,9 @@ a {
 .main-navigation {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 4px;
   flex-wrap: wrap;
-  justify-content: flex-end;
 }
 
 .nav-link {
@@ -109,6 +111,8 @@ a {
   border-bottom-color: var(--terracotta);
 }
 
+/* Shared page styles */
+
 .page-content {
   width: min(1080px, calc(100% - 40px));
   margin: 0 auto;
@@ -116,12 +120,28 @@ a {
   padding: 80px 0;
 }
 
-.hero-section {
-  max-width: 760px;
-  min-height: 520px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 850px;
+  margin-bottom: 20px;
+  color: var(--charcoal);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.55rem, 6vw, 5.2rem);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+}
+
+h2 {
+  margin-bottom: 12px;
+  color: var(--charcoal);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.55rem;
+  line-height: 1.2;
 }
 
 .eyebrow {
@@ -133,29 +153,6 @@ a {
   text-transform: uppercase;
 }
 
-h1,
-h2,
-p {
-  margin-top: 0;
-}
-
-h1 {
-  color: var(--charcoal);
-  max-width: 850px;
-  margin-bottom: 20px;
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(2.55rem, 6vw, 5.2rem);
-  line-height: 1.04;
-  letter-spacing: -0.04em;
-}
-
-h2 {
-  margin-bottom: 12px;
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.55rem;
-  line-height: 1.2;
-}
-
 .hero-text,
 .mission-statement,
 .section-introduction {
@@ -163,6 +160,22 @@ h2 {
   color: var(--muted-text);
   font-size: 1.05rem;
   line-height: 1.75;
+}
+
+.content-section h1,
+.contact-section h1,
+.about-content h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* Home page */
+
+.hero-section {
+  max-width: 760px;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .mission-statement {
@@ -181,14 +194,14 @@ h2 {
   border-radius: 2px;
   background: var(--terracotta);
   color: white;
-  text-decoration: none;
   font-weight: 700;
+  text-decoration: none;
   transition: 0.2s ease;
 }
 
 .primary-button:hover {
-  background: var(--terracotta-dark);
   border-color: var(--terracotta-dark);
+  background: var(--terracotta-dark);
   transform: translateY(-2px);
 }
 
@@ -201,6 +214,8 @@ h2 {
   background: var(--terracotta);
   color: white;
 }
+
+/* About page */
 
 .about-section,
 .contact-section {
@@ -226,14 +241,14 @@ h2 {
 
 .profile-photo {
   width: 100%;
-  min-height: 330px;
   height: 430px;
+  min-height: 330px;
   display: block;
-  object-fit: cover;
-  object-position: center;
   border: 10px solid var(--paper);
   border-radius: 2px;
   box-shadow: var(--shadow);
+  object-fit: cover;
+  object-position: center;
 }
 
 .about-content p,
@@ -242,44 +257,22 @@ h2 {
   line-height: 1.75;
 }
 
-.content-section h1,
-.contact-section h1,
-.about-content h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-}
+/* Card layouts */
 
-.content-section:has(.service-grid) {
-  text-align: center;
-}
-
-.content-section:has(.service-grid) .section-introduction {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.card-grid {
+.card-grid,
+.project-grid {
   max-width: 900px;
-  margin: 42px auto 0;
+  margin: 30px auto 0;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 22px;
 }
 
-.service-grid .content-card {
-  min-height: 290px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+.card-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.service-grid .content-card h2 {
-  color: var(--charcoal);
-  font-size: 1.5rem;
-}
-
-.service-grid .content-card p {
-  text-align: center;
+.project-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .content-card,
@@ -319,12 +312,52 @@ h2 {
   font-weight: 700;
 }
 
-.card-detail {
-  margin-bottom: 8px;
-  color: var(--charcoal) !important;
-  font-size: 0.9rem;
-  font-weight: 600;
+/* Services page */
+
+.services-section {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
 }
+
+.services-section h1 {
+  max-width: none;
+  margin: 0 0 12px;
+}
+
+.services-section .section-introduction {
+  margin: 0 auto;
+}
+
+.service-grid .content-card {
+  min-height: 290px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.service-grid .content-card h2 {
+  color: var(--charcoal);
+  font-size: 1.5rem;
+}
+
+/* Projects page */
+
+.project-image {
+  width: calc(100% + 56px);
+  height: 160px;
+  display: block;
+  margin: -28px -28px 24px;
+  border-bottom: 1px solid var(--line);
+  object-fit: cover;
+}
+
+.project-card h2 {
+  color: var(--charcoal);
+}
+
+/* Education page */
 
 .education-card {
   max-width: 780px;
@@ -345,6 +378,15 @@ h2 {
   color: var(--charcoal) !important;
   font-weight: 700;
 }
+
+.card-detail {
+  margin-bottom: 8px;
+  color: var(--charcoal) !important;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Contact page */
 
 .contact-section {
   align-items: start;
@@ -386,7 +428,7 @@ h2 {
   border: 1px solid var(--sand);
   border-radius: 2px;
   outline-color: var(--terracotta);
-  background: #fff;
+  background: white;
   color: var(--charcoal);
 }
 
@@ -404,6 +446,8 @@ h2 {
   font-weight: 700;
 }
 
+/* Footer */
+
 .site-footer {
   width: min(1180px, calc(100% - 40px));
   margin: 0 auto;
@@ -416,6 +460,18 @@ h2 {
 .site-footer p {
   margin: 0;
 }
+
+/* Accessibility */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--terracotta);
+  outline-offset: 4px;
+}
+
+/* Responsive layout */
 
 @media (max-width: 850px) {
   .site-header {
@@ -437,7 +493,6 @@ h2 {
     min-height: 250px;
   }
 
-  .card-grid,
   .project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -473,35 +528,4 @@ h2 {
   .contact-form {
     padding: 22px;
   }
-}
-
-/* Project card layout and images */
-.project-grid {
-  max-width: 900px;
-  margin: 42px auto 0;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
-}
-
-.project-image {
-  width: calc(100% + 56px);
-  height: 160px;
-  display: block;
-  margin: -28px -28px 24px;
-  object-fit: cover;
-  border-bottom: 1px solid var(--line);
-}
-
-.project-card h2 {
-  color: var(--charcoal);
-}
-
-/* Makes links and buttons easy to identify during keyboard navigation. */
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-textarea:focus-visible {
-  outline: 3px solid var(--terracotta);
-  outline-offset: 4px;
 }

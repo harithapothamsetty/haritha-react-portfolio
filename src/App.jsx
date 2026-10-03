@@ -173,7 +173,7 @@ function App() {
         )}
 
         {activePage === 'projects' && (
-          <section className="content-section">
+          <section className="content-section services-section">
             <p className="eyebrow">Selected Work</p>
             <h1>Projects</h1>
             <p className="section-introduction">
@@ -229,7 +229,7 @@ function App() {
         )}
 
         {activePage === 'services' && (
-          <section className="content-section">
+          <section className="content-section services-section">
             <p className="eyebrow">How I Can Help</p>
             <h1>Services</h1>
             <p className="section-introduction">
