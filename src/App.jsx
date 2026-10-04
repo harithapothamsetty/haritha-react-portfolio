@@ -201,7 +201,7 @@ function App() {
         )}
 
         {activePage === 'education' && (
-          <section className="content-section">
+          <section className="content-section education-section">
             <p className="eyebrow">Learning Journey</p>
             <h1>Education</h1>
 
