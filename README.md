@@ -35,3 +35,7 @@ npm run build
 ## Author
 
 Haritha Pothamsetty
+
+# Haritha React Portfolio
+
+Live Website: https://haritha-react-portfolio-2026.vercel.app
